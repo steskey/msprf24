@@ -27,9 +27,10 @@
  * ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
-#include <msp430.h>
+#include <msp432.h>
+#include "driverlib.h"
 #include "msprf24.h"
-#include "msp430_spi.h"
+#include "msp432_spi.h"
 #include "nRF24L01.h"
 #include "nrf_userconfig.h"
 /* ^ Provides nrfCSNport, nrfCSNportout, nrfCSNpin,
@@ -271,7 +272,7 @@ void msprf24_init()
 {
 	// Setup SPI
 	spi_init();
-	_EINT();  // Enable interrupts (set GIE in SR)
+	MAP_Interrupt_enableMaster();  // Enable interrupts (set GIE in SR)
 
 	// Setup IRQ
 	#if nrfIRQport == 1
@@ -782,11 +783,10 @@ void msprf24_irq_clear(uint8_t irqflag)
   __attribute__((interrupt(PORT2_VECTOR)))
   void P2_IRQ (void) {
   #else
-  #pragma vector = PORT2_VECTOR
   __interrupt void P2_IRQ (void) {
   #endif
 	if(P2IFG & nrfIRQpin) {
-		__bic_SR_register_on_exit(LPM4_bits);    // Wake up
+		MAP_Interrupt_disableSleepOnIsrExit();
 		rf_irq |= RF24_IRQ_FLAGGED;
 		P2IFG &= ~nrfIRQpin;   // Clear interrupt flag
 	}

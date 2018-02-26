@@ -59,16 +59,16 @@
 
 /* IRQ */
 #define nrfIRQport 2
-#define nrfIRQpin BIT2
+#define nrfIRQpin BIT5
 
 /* CSN SPI chip-select */
-#define nrfCSNport 2
-#define nrfCSNportout P2OUT
-#define nrfCSNpin BIT1
+#define nrfCSNport 3
+#define nrfCSNportout P3OUT
+#define nrfCSNpin BIT0
 
 /* CE Chip-Enable (used to put RF transceiver on-air for RX or TX) */
-#define nrfCEport 2
-#define nrfCEportout P2OUT
-#define nrfCEpin BIT0
+#define nrfCEport 3
+#define nrfCEportout P3OUT
+#define nrfCEpin BIT2
 
 #endif
