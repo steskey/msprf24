@@ -16,7 +16,7 @@ void spi_init()
     const eUSCI_SPI_MasterConfig spiMasterConfig =
     {
             EUSCI_B_SPI_CLOCKSOURCE_SMCLK,             // SMCLK Clock Source
-          3000000,                                   // SMCLK 3Mhz
+          24000000,                                   // SMCLK 24Mhz
             500000,                                    // SPICLK = 500khz
             EUSCI_B_SPI_MSB_FIRST,                     // MSB First
             EUSCI_B_SPI_PHASE_DATA_CAPTURED_ONFIRST_CHANGED_ON_NEXT,    // Phase
