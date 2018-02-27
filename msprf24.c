@@ -272,7 +272,7 @@ void msprf24_init()
 {
 	// Setup SPI
 	spi_init();
-	MAP_Interrupt_enableMaster();  // Enable interrupts (set GIE in SR)
+	//MAP_Interrupt_enableMaster();  // Enable interrupts (set GIE in SR)
 
 	// Setup IRQ
 	#if nrfIRQport == 1

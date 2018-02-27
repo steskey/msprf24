@@ -14,4 +14,6 @@
 	<templateProperties value="id=empty_project.projectspec.empty_project,"/>
 	<origin value="/home/chris/ti/msp/MSP432Ware_3_50_00_02/driverlib/examples/MSP432P4xx/empty_projects/driverlib_empty_project/ccs/empty_project.projectspec"/>
 	<filesToOpen value="main.c,"/>
+	<connection value="common/targetdb/connections/TIXDS110_Connection.xml"/>
+	<isTargetManual value="false"/>
 </projectOptions>
